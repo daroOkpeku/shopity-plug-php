@@ -6,11 +6,11 @@ if(mysqli_errno($conn)){
 }
 
 $shop = $_GET;
-//echo print_r($shop);
+echo print_r($shop);
 $sql = "SELECT * FROM shopity WHERE shop_url='".$shop['shop']."' LIMIT 1";
 $look = mysqli_query($conn, $sql);
 if(mysqli_num_rows($look) < 1){
-    header("Location: install.php?shop=".$shop['shop']);
+    header("Location:install.php?shop=".$shop['shop']);
     exit();
 }else{
     $search = mysqli_fetch_assoc($look);
